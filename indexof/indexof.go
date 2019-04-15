@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func substr(s, t string) int {
+func indexof(s, t string) int {
 	ss := []rune(s)
 	tt := []rune(t)
 
@@ -25,6 +25,6 @@ func substr(s, t string) int {
 	return res
 }
 func main() {
-	n := substr("how are you", "are")
+	n := indexof("how are you", "are")
 	fmt.Print(n)
 }
