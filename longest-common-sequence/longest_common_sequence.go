@@ -16,19 +16,15 @@ func LCS(a, b string) string {
 		dp[i] = make([]int, len(a1)+1)
 	}
 
-	for i := 0; i < len(b1); i++ {
-		for j := 0; j < len(a1); j++ {
-			if i == 0 || j == 0 {
-				dp[i][j] = 0
+	for i := 1; i < len(b1); i++ {
+		for j := 1; j < len(a1); j++ {
+			if a1[i] == b1[j] {
+				dp[i][j] = dp[i-1][j-1] + 1
 			} else {
-				if a1[i] == b1[j] {
-					dp[i][j] = dp[i-1][j-1] + 1
+				if dp[i-1][j] > dp[i][j-1] {
+					dp[i][j] = dp[i-1][j]
 				} else {
-					if dp[i-1][j] > dp[i][j-1] {
-						dp[i][j] = dp[i-1][j]
-					} else {
-						dp[i][j] = dp[i][j-1]
-					}
+					dp[i][j] = dp[i][j-1]
 				}
 			}
 		}
