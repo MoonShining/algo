@@ -4,6 +4,8 @@ import (
 	"fmt"
 )
 
+// https://wawlian.iteye.com/blog/1266397
+
 var op = map[rune]bool{'+': true, '-': true, '*': true, '/': true}
 
 type stack struct {
