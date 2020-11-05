@@ -20,18 +20,6 @@ func Quick(a []int, lo, hi int) {
 	}
 }
 
-func Select(a []int) {
-	for i := 0; i < len(a); i++ {
-		min := i
-		for j := i; j < len(a); j++ {
-			if a[j] < a[min] {
-				min = j
-			}
-		}
-		a[i], a[min] = a[min], a[i]
-	}
-}
-
 func partition(a []int, lo, hi int) int {
 	i := lo
 	pivot := a[hi]
@@ -44,6 +32,19 @@ func partition(a []int, lo, hi int) int {
 	a[i], a[hi] = a[hi], a[i]
 	return i
 }
+
+func Select(a []int) {
+	for i := 0; i < len(a); i++ {
+		min := i
+		for j := i; j < len(a); j++ {
+			if a[j] < a[min] {
+				min = j
+			}
+		}
+		a[i], a[min] = a[min], a[i]
+	}
+}
+
 
 func main() {
 	a := []int{3, 9, 1, 4, 5, 6, 4, 7, 1}
